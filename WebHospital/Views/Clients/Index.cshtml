@@ -1,0 +1,24 @@
+﻿<h2>Все клиенты</h2>
+<table class="table table-striped">
+    <thead>
+           <tr>
+                <td>Имя</td>
+                <td>Возраст</td>
+                <td>Пол</td>
+                <td>Адрес</td>
+                <td>СНИЛС</td>
+                <td>Полис</td>
+            </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FullName</td>
+            <td>@item.Age</td>
+            <td>@item.Sex</td>
+            <td>@item.Address</td>
+            <td>@item.SNILS</td>
+            <td>@item.Policy</td>
+        </tr>
+    }
+</table>
