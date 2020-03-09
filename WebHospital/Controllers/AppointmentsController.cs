@@ -13,13 +13,12 @@ namespace WebHospital.Controllers
 
         public AppointmentsController()
         {
-            ImitationDB imitationDB = new ImitationDB(); 
-            _allAppointments = imitationDB.Appointments;
+            _allAppointments = ImitationDB.S.Appointments;
         }
 
         public ViewResult Index()
         {
-            ViewBag.Title = "Все доктора";
+            ViewBag.Title = "Записи";
             return View(_allAppointments);
         }
     }

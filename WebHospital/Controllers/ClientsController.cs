@@ -13,8 +13,7 @@ namespace WebHospital.Controllers
 
         public ClientsController()
         {
-            ImitationDB imitationDB = new ImitationDB();
-            _allClients = imitationDB.Clients;
+            _allClients = ImitationDB.S.Clients;
         }
 
         public ViewResult Index()

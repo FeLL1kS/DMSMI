@@ -7,6 +7,7 @@ namespace WebHospital.Models
 {
     public class ImitationDB
     {
+        public static ImitationDB S = new ImitationDB(); 
         public List<Client> Clients { get; }
         public List<Doctor> Doctors { get; }
         public List<Appointment> Appointments { get; }
