@@ -1,0 +1,35 @@
+﻿
+@*@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<form asp-action="create" asp-controller="clients">
+    <div class="form-group">
+        <label asp-for="FullName" class="control-label">ФИО</label>
+        <input type="text" asp-for="FullName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Age" class="control-label">Возраст</label>
+        <input type="number" asp-for="Age" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Sex" class="control-label">Пол</label>
+        <input type="text" asp-for="Sex" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="SNILS" class="control-label">СНИЛС</label>
+        <input type="text" asp-for="SNILS" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Address" class="control-label">Адрес</label>
+        <input type="text" asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Policy" class="control-label">Полис</label>
+        <input type="text" asp-for="Policy" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>*@

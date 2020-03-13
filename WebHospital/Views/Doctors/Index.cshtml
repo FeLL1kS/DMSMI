@@ -1,17 +1,21 @@
-﻿<h2>Все доктора</h2>
-<table class="table table-striped">
+﻿@model IEnumerable<WebHospital.Models.Doctor>
+<h2>Все доктора</h2>
+<a asp-action="Create" class="btn btn-success">Добавить доктора</a>
+<table class="table table-striped mt-2">
     <thead>
-           <tr>
-                <td>Имя</td>
-                <td>Возраст</td>
-                <td>Адрес</td>
-                <td>СНИЛС</td>
-                <td>Полис</td>
-            </tr>
+        <tr>
+            <td>ID</td>
+            <td>Имя</td>
+            <td>Возраст</td>
+            <td>Адрес</td>
+            <td>СНИЛС</td>
+            <td>Полис</td>
+        </tr>
     </thead>
     @foreach (var item in Model)
     {
         <tr>
+            <td>@item.DoctorId</td>
             <td>@item.FullName</td>
             <td>@item.Age</td>
             <td>@item.Address</td>

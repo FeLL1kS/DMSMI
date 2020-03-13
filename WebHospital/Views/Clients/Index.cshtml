@@ -1,14 +1,15 @@
 ﻿<h2>Все клиенты</h2>
+<a asp-controller="Clients" asp-action="Create">Добавить клиента</a>
 <table class="table table-striped">
     <thead>
-           <tr>
-                <td>Имя</td>
-                <td>Возраст</td>
-                <td>Пол</td>
-                <td>Адрес</td>
-                <td>СНИЛС</td>
-                <td>Полис</td>
-            </tr>
+        <tr>
+            <td>Имя</td>
+            <td>Возраст</td>
+            <td>Пол</td>
+            <td>Адрес</td>
+            <td>СНИЛС</td>
+            <td>Полис</td>
+        </tr>
     </thead>
     @foreach (var item in Model)
     {
