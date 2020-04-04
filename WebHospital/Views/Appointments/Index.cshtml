@@ -1,4 +1,10 @@
-﻿<h2>Запись</h2>
+﻿@model IEnumerable<WebHospital.Models.Appointment>
+<h2>Запись</h2>
+
+<p>
+    @Html.ActionLink("Добавить запись", "Create")
+</p>
+
 <table class="table table-striped">
     <thead>
            <tr>
@@ -10,9 +16,19 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td></td>
-            <td></td>
-            <td>@item.Date</td
+            <td>
+                @Html.DisplayFor(ModelItem => item.Doctor.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Client.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(ModelItem => item.Date)
+            </td>
+            <td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>    
+            </td>
         </tr>
     }
 </table>

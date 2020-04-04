@@ -1,0 +1,31 @@
+﻿@model WebHospital.Models.Appointment
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm())
+{
+<fieldset>
+    <p>
+        Клиенты<br />
+        @Html.DropDownListFor(model => model.ClientId, ViewBag.Clients as SelectList)
+    </p>
+
+    <p>
+        Доктора<br />
+        @Html.DropDownListFor(model => model.DoctorId, ViewBag.Doctors as SelectList)
+    </p>
+
+    <p>
+        Дата<br />
+        <input type="date" asp-for="Date" class="form-control" />
+    </p>
+
+    <p>
+        <input type="submit" class="btn btn-success" value="Добавить" />
+    </p>
+</fieldset>
+}
+
