@@ -19,6 +19,7 @@ namespace WebHospital.Controllers
         public ViewResult Index()
         {
             ViewBag.Title = "Записи";
+            // ViewBag.Model = 
             return View(_allAppointments);
         }
     }

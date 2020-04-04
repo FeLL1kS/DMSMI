@@ -15,7 +15,7 @@ namespace WebHospital.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>()
-                .HasKey(u => new { u.AppointmentId, u.ClientId, u.DoctorId })
+                .HasKey(u => new { u.Id, u.ClientId, u.DoctorId })
                 .HasName("AppointmentPrimaryKey");
         }
 

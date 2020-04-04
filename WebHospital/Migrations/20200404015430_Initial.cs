@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebHospital.Migrations
 {
@@ -10,7 +11,7 @@ namespace WebHospital.Migrations
                 name: "Clients",
                 columns: table => new
                 {
-                    ClientId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
@@ -22,14 +23,14 @@ namespace WebHospital.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.ClientId);
+                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Doctors",
                 columns: table => new
                 {
-                    DoctorId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: false),
@@ -39,46 +40,44 @@ namespace WebHospital.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Doctors", x => x.DoctorId);
+                    table.PrimaryKey("PK_Doctors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Appointments",
                 columns: table => new
                 {
-                    AppointmentId = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
                     ClientId = table.Column<int>(nullable: false),
                     DoctorId = table.Column<int>(nullable: false),
-                    Date = table.Column<string>(nullable: true)
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("AppointmentPrimaryKey", x => new { x.AppointmentId, x.ClientId, x.DoctorId });
+                    table.PrimaryKey("AppointmentPrimaryKey", x => new { x.Id, x.ClientId, x.DoctorId });
                     table.ForeignKey(
                         name: "FK_Appointments_Clients_ClientId",
                         column: x => x.ClientId,
                         principalTable: "Clients",
-                        principalColumn: "ClientId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Appointments_Doctors_DoctorId",
                         column: x => x.DoctorId,
                         principalTable: "Doctors",
-                        principalColumn: "DoctorId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_ClientId",
                 table: "Appointments",
-                column: "ClientId",
-                unique: true);
+                column: "ClientId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_DoctorId",
                 table: "Appointments",
-                column: "DoctorId",
-                unique: true);
+                column: "DoctorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

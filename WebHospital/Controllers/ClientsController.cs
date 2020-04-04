@@ -24,11 +24,9 @@ namespace WebHospital.Controllers
             ViewBag.Title = "Все клиенты";
             return View(await db.Clients.ToListAsync());
         }
+        
+        [HttpGet]
         public IActionResult Create()
-        {
-            return View();
-        }
-        public ViewResult Registration()
         {
             return View();
         }
@@ -39,5 +37,61 @@ namespace WebHospital.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(int? id)
+        {
+            if(id != null)
+            {
+                Client client = await db.Clients.FirstOrDefaultAsync(p => p.Id == id);
+                if(client != null)
+                {
+                    return View(client);
+                }
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if(id != null)
+            {
+                Client client = await db.Clients.FirstOrDefaultAsync(p => p.Id == id);
+                if(client != null)
+                {
+                    db.Clients.Remove(client);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id != null)
+            {
+                Client client = await db.Clients.FirstOrDefaultAsync(p => p.Id == id);
+                if (client != null)
+                {
+                    return View(client);
+                }
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Client client)
+        {
+            db.Clients.Update(client);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        //public ViewResult Registration()
+        //{
+        //    return View();
+        //}
     }
 }

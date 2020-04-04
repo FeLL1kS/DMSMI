@@ -1,10 +1,9 @@
 ﻿@model WebHospital.Models.Client
 @{
-    ViewData["Title"] = "Create";
+    ViewBag.Title = "Редактирование клиента " + Model.FullName;
 }
-
-<h1>Create</h1>
-<form asp-action="create" asp-controller="clients">
+<form asp-action="edit" asp-controller="clients" asp-route-id="@Model.Id">
+    <input type="text" asp-for="Id" class="form-control" value="@Model.Id" style="display: none" />
     <div class="form-group">
         <label asp-for="FullName" class="control-label">ФИО</label>
         <input type="text" asp-for="FullName" class="form-control" />
