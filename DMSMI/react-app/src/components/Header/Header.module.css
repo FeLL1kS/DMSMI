@@ -1,0 +1,37 @@
+.header {
+    grid-area: header;
+    background-color: gray;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+.header img {
+    width: 50px;
+    margin-left: 30px;
+}
+
+.logo {
+    margin-left: 5px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navMenu {
+    height: 28px;
+}
+
+.item {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.item:first-child {
+    margin-left: 50px;
+}

@@ -1,21 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { store } from './actions/store';
-import { Provider } from "react-redux"
-import Clients from './components/Clients';
-import { Container } from '@material-ui/core'
-import { ToastProvider } from 'react-toast-notifications'
+import Header from './components/Header/Header';
+import { Route } from 'react-router-dom';
+import ClientsContainer from './components/Clients/ClientsContainer';
+import Doctors from './components/Doctors/Doctors';
+import Appointments from './components/Appointments/Appointments';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
   return (
-      <Provider store={store}>
-        <ToastProvider autoDismiss={true}>
-          <Container maxWidth="lg">
-            <Clients />
-          </Container>
-        </ToastProvider>
-      </Provider>
+    <div>
+      <Header />
+      <div className='app-content'>
+        <Route render={() => <MainPage />} exact path="/" />
+        <Route render={() => <ClientsContainer />} path="/clients" />
+        <Route render={() => <Doctors />} path="/Doctors" />
+        <Route render={() => <Appointments />} path="/Appointments" />
+      </div>
+    </div>
   );
 }
 

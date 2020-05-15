@@ -11,7 +11,7 @@ namespace DMSMI.Models
         public AppDBContext(DbContextOptions<AppDBContext> options)
             : base(options)
         {
-
+            Database.EnsureCreated();
         }
 
         public DbSet<Client> Clients { get; set; }
