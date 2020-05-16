@@ -1,22 +1,23 @@
 import api from '../api'
 
-export const ACTION_TYPES_CLIENT = {
-    FETCH_ALL_CLIENTS: 'FETCH_ALL_CLIENTS',
-    CREATE_CLIENT: 'CREATE_CLIENT',
-    UPDATE_CLIENT: 'UPDATE_CLIENT',
-    DELETE_CLIENT: 'DELETE_CLIENT'
+export const ACTION_TYPES_DOCTOR = {
+    FETCH_ALL_DOCTORS: 'FETCH_ALL_DOCTORS',
+    CREATE_DOCTOR: 'CREATE_DOCTOR',
+    UPDATE_DOCTOR: 'UPDATE_DOCTOR',
+    DELETE_DOCTOR: 'DELETE_DOCTOR'
 }
 
 const formateData = data => ({
     ...data,
-    age:parseInt(data.age ? data.age : 0)
+    age:parseInt(data.age ? data.age : 0),
+    expirience:parseInt(data.expirience ? data.expirience : 0)
 })
 
 export const fetchAll = (dispatch) => {
-    api.Client().fetchAll()
+    api.Doctor().fetchAll()
         .then(response => {
             dispatch({
-                type: ACTION_TYPES_CLIENT.FETCH_ALL_CLIENTS,
+                type: ACTION_TYPES_DOCTOR.FETCH_ALL_DOCTORS,
                 payload: response.data
             })
         })
@@ -25,10 +26,10 @@ export const fetchAll = (dispatch) => {
 
 export const create = (dispatch, data) => {
     let formatedData = formateData(data)
-    api.Client().create(formatedData)
+    api.Doctor().create(formatedData)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES_CLIENT.CREATE_CLIENT,
+                type: ACTION_TYPES_DOCTOR.CREATE_DOCTOR,
                 payload: response.data
             })
         })
@@ -38,10 +39,10 @@ export const create = (dispatch, data) => {
 export const update = (dispatch, id, data) => {
     let formatedData = formateData(data)
     debugger
-    api.Client().update(id, formatedData)
+    api.Doctor().update(id, formatedData)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES_CLIENT.UPDATE_CLIENT,
+                type: ACTION_TYPES_DOCTOR.UPDATE_DOCTOR,
                 payload: {id, ...data}
             })
         })
@@ -49,10 +50,10 @@ export const update = (dispatch, id, data) => {
 }
 
 export const Delete = (dispatch, id) => {
-    api.Client().delete(id)
+    api.Doctor().delete(id)
         .then(response => {
             dispatch({
-                type: ACTION_TYPES_CLIENT.DELETE_CLIENT,
+                type: ACTION_TYPES_DOCTOR.DELETE_DOCTOR,
                 payload: id
             })
         })

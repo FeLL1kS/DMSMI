@@ -1,43 +1,43 @@
-import { ACTION_TYPES_CLIENT } from "../api/Clients/Client"
+import { ACTION_TYPES_DOCTOR } from '../api/Doctors/Doctor'
 
 export const UPDATE_FORM = "UPDATE_FORM"
 export const UPDATE_CURRENT_ID = "UPDATE_CURRENT_ID"
 
 const initialState = {
-    clients: [],
+    doctors: [],
     formData: {
         fullName: '',
+        pasport: '',
+        education: '',
         age: '',
-        sex: '',
-        snils: '',
-        police: '',
-        address: ''
-    },
+        specialization: '',
+        expirience: ''
+    },    
     currentId: 0
 }
 
-const clientsReducer = (state = initialState, action) => {
+const doctorsReducer = (state = initialState, action) => {
     switch(action.type)
     {
-        case ACTION_TYPES_CLIENT.FETCH_ALL_CLIENTS:
+        case ACTION_TYPES_DOCTOR.FETCH_ALL_DOCTORS:
             return {
                 ...state,
-                clients: [...action.payload]
+                doctors: [...action.payload]
             }
-        case ACTION_TYPES_CLIENT.CREATE_CLIENT:
+        case ACTION_TYPES_DOCTOR.CREATE_DOCTOR:
             return {
                 ...state,
-                clients: [...state.clients, action.payload]
+                doctors: [...state.doctors, action.payload]
             }
-        case ACTION_TYPES_CLIENT.UPDATE_CLIENT:
+        case ACTION_TYPES_DOCTOR.UPDATE_DOCTOR:
             return {
                 ...state,
-                clients: state.clients.map(c => c.id === action.payload.id ? action.payload : c)
+                doctors: state.doctors.map(c => c.id === action.payload.id ? action.payload : c)
             }
-        case ACTION_TYPES_CLIENT.DELETE_CLIENT:
+        case ACTION_TYPES_DOCTOR.DELETE_DOCTOR:
             return {
                 ...state,
-                clients: state.clients.filter(c => c.id !== action.payload)
+                doctors: state.doctors.filter(c => c.id !== action.payload)
             }
         case UPDATE_FORM:
             return {
@@ -54,4 +54,4 @@ const clientsReducer = (state = initialState, action) => {
     }
 }
 
-export default clientsReducer
+export default doctorsReducer
