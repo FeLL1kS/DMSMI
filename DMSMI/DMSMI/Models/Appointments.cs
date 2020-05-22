@@ -12,6 +12,11 @@ namespace DMSMI.Models
         [Key]
         public int Id { get; set; }
 
+        public DateTime AppointmentDate { get; set; }
+
+        [Column(TypeName = "nvarchar(200)")]
+        public string Note { get; set; }
+
         [ForeignKey("ClientId")]
         public int ClientId { get; set; }
         public Client Client { get; set; }

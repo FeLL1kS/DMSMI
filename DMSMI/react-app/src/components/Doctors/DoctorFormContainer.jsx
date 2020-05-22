@@ -5,7 +5,6 @@ import { UPDATE_FORM, UPDATE_CURRENT_ID } from '../../redux/doctorsReducer'
 
 let mapStateToProps = (state) => {
     return {
-        doctors: state.doctorsPage.doctors,
         formData: state.doctorsPage.formData,
         currentId: state.doctorsPage.currentId
     }

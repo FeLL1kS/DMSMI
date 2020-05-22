@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import { Route } from 'react-router-dom';
 import ClientsContainer from './components/Clients/ClientsContainer';
 import DoctorsContainer from './components/Doctors/DoctorsContainer';
-import Appointments from './components/Appointments/Appointments';
+import AppointmentsContainer from './components/Appointments/AppointmentsContainer';
 import MainPage from './components/MainPage/MainPage';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route render={() => <MainPage />} exact path="/" />
         <Route render={() => <ClientsContainer />} path="/clients" />
         <Route render={() => <DoctorsContainer />} path="/Doctors" />
-        <Route render={() => <Appointments />} path="/Appointments" />
+        <Route render={() => <AppointmentsContainer />} path="/Appointments" />
       </div>
     </div>
   );
