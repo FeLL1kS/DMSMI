@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './Clients.module.css'
-import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles, ButtonGroup, Button } from '@material-ui/core';
+import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, ButtonGroup, Button } from '@material-ui/core';
 import ClientsFormContainer from './ClientsFormContainer';
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -15,7 +15,7 @@ class Clients extends React.Component {
 
     updateSelected(id)
     {
-        let newFormData = this.props.clients.find(c => c.id == id)
+        let newFormData = this.props.clients.find(c => c.id === id)
         this.props.updateForm(newFormData)
         this.props.updateCurrentId(id)
     }

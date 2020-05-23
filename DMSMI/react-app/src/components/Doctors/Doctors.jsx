@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles, ButtonGroup, Button } from '@material-ui/core';
+import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, ButtonGroup, Button } from '@material-ui/core';
 import classes from './Doctors.module.css'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteIcon from '@material-ui/icons/Delete'
@@ -14,7 +14,7 @@ class Doctors extends React.Component {
 
     updateSelected(id)
     {
-        let newFormData = this.props.doctors.find(c => c.id == id)
+        let newFormData = this.props.doctors.find(c => c.id === id)
         this.props.updateForm(newFormData)
         this.props.updateCurrentId(id)
     }

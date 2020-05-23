@@ -20,5 +20,14 @@ export default {
             update: (id, doctor) => axios.put(url + id, doctor),
             delete: id => axios.delete(url + id)
         }
+    },
+    Appointment(url = baseUrl + "appointments/") {
+        return {
+            fetchAll: () => axios.get(url),
+            fetchById: id => axios.get(url + id),
+            create: doctor => axios.post(url, doctor),
+            update: (id, doctor) => axios.put(url + id, doctor),
+            delete: id => axios.delete(url + id)
+        }
     }
 }

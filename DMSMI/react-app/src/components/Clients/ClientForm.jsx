@@ -1,7 +1,19 @@
 import React from 'react'
-import { Grid, TextField, Button } from '@material-ui/core';
+import { Grid, TextField, Button, withStyles } from '@material-ui/core';
 
-const ClientForm = (props) => {
+const styles = theme => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            minWidth: 230
+        }
+    },
+    smMargin: {
+        margin: theme.spacing(1)
+    }
+})
+
+const ClientForm = ({classes, ...props}) => {
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -36,7 +48,7 @@ const ClientForm = (props) => {
     }
 
     return (
-        <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+        <form autoComplete="off" noValidate onSubmit={handleSubmit} className={classes.root}>
             <Grid container>
             <Grid item xs={6}>
                 <TextField name="fullName" variant="outlined" label="ФИО" value={props.formData.fullName} onChange={handleInputChange}/>
@@ -48,8 +60,8 @@ const ClientForm = (props) => {
                 <TextField name="police" variant="outlined" label="Полис" value={props.formData.police} onChange={handleInputChange}/>
                 <TextField name="address" variant="outlined" label="Адрес" value={props.formData.address} onChange={handleInputChange}/>
                 <div>
-                    <Button variant="contained" color="primary" type="submit">Отправить</Button>
-                    <Button variant="contained" onClick={resetForm}>Сбросить</Button>
+                    <Button variant="contained" color="primary" type="submit" className={classes.smMargin}>Отправить</Button>
+                    <Button variant="contained" onClick={resetForm} className={classes.smMargin}>Сбросить</Button>
                 </div>
             </Grid>
             </Grid>
@@ -57,4 +69,4 @@ const ClientForm = (props) => {
     )
 } 
 
-export default ClientForm
+export default withStyles(styles)(ClientForm)

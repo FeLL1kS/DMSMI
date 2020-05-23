@@ -6,7 +6,7 @@ import logo from '../../img/logo.png'
 const Header = () => {
     return (
         <div className={classes.header}>
-            <img src={logo} />
+            <img src={logo} alt="img error"/>
             <NavLink to='/' className={classes.logo}>Hospital</NavLink>
             <div className={classes.navMenu}>
                 <NavLink to='/clients' className={classes.item}>Clients</NavLink>
